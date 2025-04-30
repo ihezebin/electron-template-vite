@@ -1,0 +1,59 @@
+@use "variable" as *;
+
+@mixin default {
+  --font-family: #{$font-family};
+  --font-size: #{$font-size-14};
+  --text-color: #{$title-color};
+  --text-color-lighter: #{$subtitle-color};
+  --background-color: #{$background-color-lightgray};
+
+  --link-hover-color: #{$link-hover-color-blue};
+
+  --scrollbar-color: #{$scrollbar-color};
+  --scrollbar-hover-color: #{$scrollbar-hover-color};
+
+  --footer-text-color: rgba(88, 101, 119, 0.7);
+
+  --spin-color: #1677ff;
+  --tab-hover-bg: #f2f2f2;
+  --tab-text-color: #7a7a7a;
+  --tab-active-bg: #edf7ff;
+  --search-bg: #f2f2f2;
+  --search-text-color:#{$title-color};
+  --search-placeholder-color: #bebdbd;
+
+  --func-color: #6c757d;
+}
+
+@mixin theme-dark {
+  --text-color: #{$title-color-reverse};
+  --text-color-lighter: #{$subtitle-color-reverse};
+  --background-color: #252d38;
+
+  --scrollbar-color: #{$scrollbar-color-reverse};
+  --scrollbar-hover-color: #{$scrollbar-hover-color-reverse};
+
+  --footer-text-color: #{$text-color-reverse-lighter};
+
+  --spin-color: white;
+  --tab-hover-bg: rgba(211, 211, 211, 0.1);
+  --tab-text-color: #{$title-color-reverse};
+  --tab-active-bg: rgba(22, 119, 255, 0.1);
+  --search-bg: #242f41;
+  --search-text-color: white;
+  --search-placeholder-color: #979a9f;
+
+  --func-color: white;
+
+  :global(.ant-btn-disabled), :global(:disabled) {
+    color: rgba(255, 255, 255, 0.25);
+  }
+}
+
+html[theme="dark"] {
+  @include theme-dark
+}
+
+:root {
+  @include default
+}

@@ -1,0 +1,6 @@
+# mac: ~/Library/Caches/electron-template-vite-updater
+# windows: C:\Users\<你的用户名>\AppData\Local\electron-template-vite-updater
+provider: generic
+# 该路径需要指向打包后的文件在服务器的存放路径
+url: https://example.com/auto-updates
+updaterCacheDirName: electron-template-vite-updater

@@ -1,0 +1,30 @@
+@use "../../assets/css/index" as *;
+
+.windowOperate {
+  @extend .no-drag;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  .btn {
+    transition: all .3s;
+    font-size: 18px;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: white;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  .close{
+    @extend .btn;
+    color: #fa3229;
+  }
+
+  .minimize {
+    @extend .btn;
+    color: #ffbf00;
+  }
+}

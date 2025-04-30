@@ -1,0 +1,35 @@
+.newVersion {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  max-height: 300px;
+
+  .releaseNotes {
+    flex: 1;
+    overflow-y: auto;
+  }
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.progress {
+
+}
+
+.quitAndInstall {
+  display: flex;
+  flex-direction: column;
+  padding-top: 10px;
+  gap: 20px;
+}
+
+.err {
+  color: #c23249;
+  max-height: 300px;
+  overflow-y: auto;
+  padding-right: 10px;
+}

@@ -1,0 +1,16 @@
+@use "../../assets/css/index" as *;
+@use "../../assets/css/theme" as *;
+
+.search {
+  @extend .no-drag;
+  font-size: 14px;
+  border-radius: 17px;
+  background-color: var(--search-bg);
+  min-width: 400px;
+  max-width: 60%;
+  border: none;
+  color: var(--search-text-color);
+  input::placeholder {
+    color: var(--search-placeholder-color);
+  }
+}
