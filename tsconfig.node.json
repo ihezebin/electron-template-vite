@@ -8,6 +8,8 @@
   // 排除自行添加的无关打包目录
   "exclude": ["download"],
   "compilerOptions": {
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
     "composite": true,
     "types": ["electron-vite/node"]
   }
