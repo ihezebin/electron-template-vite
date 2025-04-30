@@ -1,10 +1,8 @@
 import { join } from 'path'
 
-import { autoUpdater, UpdateInfo } from 'electron-updater'
-
 import { app, shell, BrowserWindow, ipcMain, screen } from 'electron'
+import { autoUpdater, UpdateInfo } from 'electron-updater'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
-
 /**
  * Windows:C:\Users\<Your User Name>\AppData\Roaming\<Your App Name>\logs\
  * macOS:/Users/<Your User Name>/Library/Logs/<Your App Name>/
@@ -13,7 +11,6 @@ import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import log from 'electron-log'
 
 import icon from '../../resources/icon.png?asset'
-
 import {
   IPC_UPDATE_DOWNLOAD_FINISH,
   IPC_UPDATE_DOWNLOAD_PROGRESS,

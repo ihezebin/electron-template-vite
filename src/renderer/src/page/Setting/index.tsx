@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react'
-import { Button, message, notification, Popconfirm } from 'antd'
+import { Button, message, Popconfirm } from 'antd'
 import { base64urlEncode } from '@hezebin/doraemon'
 
 import { useStorage } from '../../storage'

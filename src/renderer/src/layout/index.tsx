@@ -1,5 +1,5 @@
 import { Outlet, useNavigate } from 'react-router-dom'
-import { Button, message, Modal, notification, Spin } from 'antd'
+import { message, Modal, Spin, notification } from 'antd'
 import classNames from 'classnames'
 import { useEffect } from 'react'
 
@@ -8,7 +8,6 @@ import Logo from '../assets/logo/ezreal.png'
 import IconFont from '../components/Icon'
 import { useInit } from '../hooks/init'
 import { useUpdate } from '../hooks/update'
-import { useVersionCheck } from '../hooks/version'
 import { useTracking } from '../hooks/tracking'
 import { useAuthentication } from '../hooks/authentication'
 
