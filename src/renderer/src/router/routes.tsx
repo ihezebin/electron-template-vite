@@ -6,6 +6,7 @@ import Nothing from '../page/Nothing'
 import Setting from '../page/Setting'
 import Test from '../page/Test'
 import About from '../page/About'
+
 export const routes: RouteObject[] = [
   {
     element: <GlobalLayout />,
