@@ -91,7 +91,10 @@ export default function App() {
       }}
     >
       <AntdApp>
-        <div data-color-mode={contextValue.dark ? 'dark' : 'light'}>
+        <div
+          className={settingsOpen ? 'settings-open' : undefined}
+          data-color-mode={contextValue.dark ? 'dark' : 'light'}
+        >
           <Routes>
             <Route
               path="/topbar"

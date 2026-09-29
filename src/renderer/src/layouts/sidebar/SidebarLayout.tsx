@@ -16,6 +16,7 @@ export function SidebarLayout({ onOpenSettings }: { onOpenSettings: () => void }
   return (
     <div className="app-shell sidebar-shell">
       <div className="window-dragbar" aria-hidden="true" />
+      <div className="sidebar-topbar-drag-region" aria-hidden="true" />
       <Layout className="sidebar-layout">
         <Sider width={244} className="sidebar">
           <div className="sidebar-brand">

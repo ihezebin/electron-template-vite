@@ -12,7 +12,15 @@ interface Props {
 
 export function SettingsDrawer({ open, settings, onClose, onUpdate }: Props) {
   return (
-    <Drawer title="外观设置" open={open} onClose={onClose} width={440}>
+    <Drawer
+      rootClassName="settings-drawer"
+      title="外观设置"
+      open={open}
+      width="100%"
+      mask={false}
+      destroyOnHidden
+      onClose={onClose}
+    >
       <div className="settings-section">
         <div className="settings-heading">
           <BgColorsOutlined />
