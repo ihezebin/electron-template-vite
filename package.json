@@ -1,0 +1,46 @@
+{
+  "name": "electron-vite-layout-template",
+  "version": "0.1.0",
+  "description": "A clean Electron Vite template with topbar and sidebar layouts.",
+  "main": "out/main/index.js",
+  "author": "Your Name",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "electron-vite dev",
+    "build": "npm run typecheck && electron-vite build",
+    "preview": "electron-vite preview",
+    "typecheck": "tsc --noEmit -p tsconfig.json && tsc --noEmit -p tsconfig.node.json",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "dist:mac": "npm run build && electron-builder --mac --publish never",
+    "dist:win": "npm run build && electron-builder --win --x64 --publish never",
+    "dist:linux": "npm run build && electron-builder --linux --publish never",
+    "package:mac": "npm run dist:mac",
+    "package:win": "npm run dist:win"
+  },
+  "dependencies": {
+    "@ant-design/icons": "^6.3.4",
+    "@chinese-fonts/xiaolai": "^3.0.0",
+    "@free-fonts/zhuque-fangsong": "^1.0.0",
+    "@hanzi.pro/webfonts-lxgw-wenkai": "^0.1.0",
+    "antd": "^6.6.5",
+    "electron-store": "^10.0.1",
+    "electron-updater": "^6.6.2",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-router-dom": "^7.9.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "@types/react": "^19.0.2",
+    "@types/react-dom": "^19.0.2",
+    "@vitejs/plugin-react": "^4.4.1",
+    "electron": "^35.0.0",
+    "electron-builder": "^25.1.8",
+    "electron-vite": "^3.0.0",
+    "prettier": "^3.6.2",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.5"
+  }
+}
