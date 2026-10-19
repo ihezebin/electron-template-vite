@@ -26,6 +26,16 @@ npm run dist:linux
 
 构建产物位于 `release/`。应用在 macOS 和 Windows 上关闭窗口时会隐藏到托盘，可从托盘重新打开或退出。托盘中的“示例操作”演示了菜单扩展位置。
 
+## 窗口标题栏
+
+两套布局共用 `src/renderer/src/components/WindowTitleBar.tsx`，顶部保留独立的 42px 拖拽行：
+
+- macOS 使用 `hiddenInset`，保留系统原生红黄绿按钮。
+- Windows 使用 `frame: false`，由 React 绘制最小化、最大化/还原、关闭按钮，通过 preload IPC 调用窗口操作；最大化状态随系统窗口事件同步。
+- Linux 保留系统原生窗口边框和按钮。
+
+标题栏支持明暗主题，设置抽屉打开时仍可操作窗口按钮。关闭按钮沿用隐藏到托盘的行为，彻底退出请使用托盘菜单。
+
 ## 主题与字体
 
 外观设置支持跟随系统、浅色、深色三种主题，以及朱雀仿宋、霞鹜文楷、小赖字体三种字体。设置由主进程的 `electron-store` 保存，字体在首次使用时动态加载。

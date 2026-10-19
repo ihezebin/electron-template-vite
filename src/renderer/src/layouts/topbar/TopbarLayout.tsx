@@ -1,13 +1,14 @@
 import { AppstoreOutlined, MenuOutlined, SettingOutlined, SwapOutlined } from '@ant-design/icons'
 import { Button, Segmented, Space } from 'antd'
 import { useNavigate } from 'react-router-dom'
+import { WindowTitleBar } from '../../components/WindowTitleBar'
 import { ExampleContent } from '../../components/ExampleContent'
 
 export function TopbarLayout({ onOpenSettings }: { onOpenSettings: () => void }) {
   const navigate = useNavigate()
   return (
     <div className="app-shell topbar-shell">
-      <div className="window-dragbar" aria-hidden="true" />
+      <WindowTitleBar />
       <header className="topbar">
         <div className="brand">
           <span className="brand-mark">

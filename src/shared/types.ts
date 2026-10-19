@@ -23,6 +23,11 @@ export interface UpdateProgress {
 
 export interface TemplateAPI {
   platform: NodeJS.Platform
+  minimizeWindow(): void
+  toggleMaximizeWindow(): void
+  closeWindow(): void
+  isWindowMaximized(): Promise<boolean>
+  onWindowMaximizedChanged(listener: (maximized: boolean) => void): () => void
   getSettings(): Promise<AppSettings>
   updateSettings(patch: Partial<AppSettings>): Promise<AppSettings>
   checkForUpdates(): Promise<UpdateInfo>

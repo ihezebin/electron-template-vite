@@ -7,6 +7,7 @@ import {
 } from '@ant-design/icons'
 import { Button, Layout, Menu } from 'antd'
 import { useNavigate } from 'react-router-dom'
+import { WindowTitleBar } from '../../components/WindowTitleBar'
 import { ExampleContent } from '../../components/ExampleContent'
 
 const { Sider, Content } = Layout
@@ -15,7 +16,7 @@ export function SidebarLayout({ onOpenSettings }: { onOpenSettings: () => void }
   const navigate = useNavigate()
   return (
     <div className="app-shell sidebar-shell">
-      <div className="window-dragbar" aria-hidden="true" />
+      <WindowTitleBar />
       <div className="sidebar-topbar-drag-region" aria-hidden="true" />
       <Layout className="sidebar-layout">
         <Sider width={244} className="sidebar">

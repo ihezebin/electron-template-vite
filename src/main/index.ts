@@ -81,8 +81,11 @@ function createWindow() {
     minHeight: 620,
     show: false,
     title: 'Electron Vite Template',
-    titleBarStyle: process.platform === 'darwin' ? 'hiddenInset' : 'hidden',
-    trafficLightPosition: { x: 18, y: 18 },
+    ...(process.platform === 'darwin'
+      ? { titleBarStyle: 'hiddenInset' as const, trafficLightPosition: { x: 18, y: 18 } }
+      : process.platform === 'win32'
+        ? { frame: false, autoHideMenuBar: true }
+        : {}),
     backgroundColor: nativeTheme.shouldUseDarkColors ? '#0f172a' : '#f5f7fb',
     icon: createAppIcon(),
     webPreferences: {
@@ -92,6 +95,13 @@ function createWindow() {
       nodeIntegration: false
     }
   })
+
+  const window = mainWindow
+  const sendWindowState = () => {
+    window.webContents.send('window:maximized-changed', window.isMaximized())
+  }
+  window.on('maximize', sendWindowState)
+  window.on('unmaximize', sendWindowState)
 
   mainWindow.once('ready-to-show', () => mainWindow?.show())
   mainWindow.on('close', (event) => {
@@ -163,4 +173,20 @@ ipcMain.handle('update:install', () => {
   if (!app.isPackaged) throw new Error('开发环境不能安装更新。')
   isQuitting = true
   autoUpdater.quitAndInstall(false, true)
+})
+
+ipcMain.on('window:minimize', (event) => {
+  BrowserWindow.fromWebContents(event.sender)?.minimize()
+})
+ipcMain.handle('window:is-maximized', (event) => {
+  return BrowserWindow.fromWebContents(event.sender)?.isMaximized() ?? false
+})
+ipcMain.on('window:toggle-maximize', (event) => {
+  const window = BrowserWindow.fromWebContents(event.sender)
+  if (!window) return
+  if (window.isMaximized()) window.unmaximize()
+  else window.maximize()
+})
+ipcMain.on('window:close', (event) => {
+  BrowserWindow.fromWebContents(event.sender)?.close()
 })
